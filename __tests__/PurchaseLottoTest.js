@@ -7,7 +7,7 @@ const mockQuestions = (inputs) => {
   
     MissionUtils.Console.readLineAsync.mockImplementation(() => {
       const input = inputs.shift();
-  
+
       return Promise.resolve(input);
     });
   };
@@ -42,8 +42,27 @@ const mockQuestions = (inputs) => {
     // then
     expect(logSpy).toHaveBeenCalledWith(expect.stringContaining("[ERROR]"));
   }
-  
+
   describe("로또 구입 테스트", () => {
+    test("로또 구입 서비스", async() => {
+      const RANDOM_NUMBERS_TO_END = [1,2,3,4,5,6];
+      const INPUT_NUMBERS_TO_END = ["1000", "1,2,3,4,5,6", "7"];
+
+      mockRandoms([RANDOM_NUMBERS_TO_END]);
+      mockQuestions([...INPUT_NUMBERS_TO_END]);
+      // when
+      const service = new PurchaseLottoServce()
+      service.inputLottoPrice()
+
+      // then
+      // 문구 출력
+
+      // 입력 받기
+      expect(service.inputLottoPrice())
+      // 입력 벨리데이션
+      expect(service.validation(INPUT_NUMBERS_TO_END)).toHaveBeenCalledTimes(1)
+    })
+
     test("로또 구입 금액 요구 문구 출력", async () => {
       // given
 
