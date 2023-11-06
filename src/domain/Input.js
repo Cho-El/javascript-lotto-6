@@ -1,8 +1,19 @@
 import { Console } from "@woowacourse/mission-utils";
 import MESSAGE from "../constant/message.js"
 class Input {
-    lottoAmountInput() {
-        Console.readLineAsync(MESSAGE.inputMessage.lottoAmount)
+    async lottoPriceInput() {
+            const price = await Console.readLineAsync(MESSAGE.inputMessage.LOTTO_AMOUNT)
+            this.#lottoPriceValidate(price)
+            return Number(price)
+    }
+    #lottoPriceValidate(price) {
+        if (isNaN(price)) {
+            throw new Error("[ERROR] 숫자를 입력해주세요.")
+        } else if (price % 10 === 0) {
+            throw new Error("[ERROR] 1000원 단위로 입력해주세요.")
+        } else {
+            return
+        }
     }
 }
 
