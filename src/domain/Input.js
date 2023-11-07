@@ -9,7 +9,7 @@ class Input {
     #lottoPriceValidate(price) {
         if (isNaN(price)) {
             throw new Error("[ERROR] 숫자를 입력해주세요.")
-        } else if (price % 10 === 0) {
+        } else if (Number(price) % 1000 !== 0) {
             throw new Error("[ERROR] 1000원 단위로 입력해주세요.")
         } else {
             return

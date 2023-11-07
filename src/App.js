@@ -1,10 +1,13 @@
 import Input from "./domain/Input.js"
 import { Console } from "@woowacourse/mission-utils";
-import Print from './domain/Output';
+import calculatorUtils from './utils/calculatorUtils.js'
+
 class App {
   #price;
+  #amount;
   async play() {
     await this.#executePurchaseLotto();
+    // await this.#executePublishLotto();
   }
 
   async #executePurchaseLotto() {
@@ -15,9 +18,13 @@ class App {
       this.#price = res;
     })
     .catch((err) => {
-      Console.print(err)
-      input.lottoPriceInput()
+      Console.print(err.message)
+      return this.#executePurchaseLotto()
     })
+  }
+
+  #executePublishLotto() {
+
   }
 }
 
