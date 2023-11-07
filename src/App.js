@@ -13,16 +13,8 @@ class App {
   async #executePurchaseLotto() {
     const input = new Input();
     // 입력 받기
-    await input.lottoPriceInput()
-    .then((res) => {
-      this.#price = res;
-    })
-    .catch((err) => {
-      Console.print(err.message)
-      return this.#executePurchaseLotto()
-    })
+    this.#price = await input.lottoPriceInput()
   }
-
   #executePublishLotto() {
 
   }
