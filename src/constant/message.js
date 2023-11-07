@@ -19,7 +19,8 @@ const MESSAGE = Object.freeze({
           ONLY_1000_UNIT: '[ERROR] 1000원 단위로 입력해주세요.',
           IN_RANGE: '[ERROR] 1 ~ 45 사이의 숫자만 입력해주세요.',
           NOT_DUPLICATE: '[ERROR] 중복되지 않는 숫자 6개를 입력해주세요.',
-          ONLY_LEN_SIX: '[ERROR] 6개의 숫자를 입력해주세요.'
+          ONLY_LEN_SIX: '[ERROR] 6개의 숫자를 입력해주세요.',
+          INCLUDE_COMMA: '[ERROR] 숫자 사이에 콤마를 삽입해주세요.'
         }
       },
 })

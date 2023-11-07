@@ -7,6 +7,8 @@ class App {
   #price;
   #amount;
   #lottos;
+  #bonus;
+  #winningLotto;
   async play() {
     await this.#executePurchaseLotto()
     this.#executePublishLotto()
